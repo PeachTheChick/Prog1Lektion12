@@ -1,12 +1,12 @@
 package opgave02;
 
 public class Hero {
-    int lifePoints;
-    int damagePoints;
-    int chanceOfHit;
-    String name;
-    String pronoun;
-    String weapon;
+    private int lifePoints;
+    private int damagePoints;
+    private int chanceOfHit;
+    private String name;
+    private String pronoun;
+    private String weapon;
 
     public Hero(int lifePoints, int damagePoints, int chanceOfHit, String name, String pronoun, String weapon) {
         this.lifePoints = lifePoints;
@@ -17,13 +17,34 @@ public class Hero {
         this.weapon = weapon;
     }
 
+    public int getLifePoints() {
+        return lifePoints;
+    }
+
+    public void setLifePoints(int lifePoints) {
+        this.lifePoints = lifePoints;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void attacks(int roll, Monster monster) {
         System.out.print(name + " attacks with " + pronoun + " " + weapon);
         if (roll <= chanceOfHit) {
-            System.out.println(" and hits the " + monster.description + " inflicting " + damagePoints);
-            monster.lifePoints -= damagePoints;
-            if (monster.lifePoints <= 0) {
-                System.out.println("killing the " + monster.description);
+
+            System.out.println(" and hits the " + monster.getDescription() + " inflicting " + damagePoints);
+
+            int monsterLifePoints = monster.getLifePoints();
+            monsterLifePoints -= damagePoints;
+            monster.setLifePoints(monsterLifePoints);
+
+            if (monster.getLifePoints() <= 0) {
+                System.out.println("killing the " + monster.getDescription());
             }
         } else {
             System.out.println(" but misses the target.");
