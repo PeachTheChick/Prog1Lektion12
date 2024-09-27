@@ -29,10 +29,6 @@ public class Hero {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void attacks(int roll, Monster monster) {
         System.out.print(name + " attacks with " + pronoun + " " + weapon);
         if (roll <= chanceOfHit) {

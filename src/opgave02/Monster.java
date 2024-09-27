@@ -27,11 +27,6 @@ public class Monster {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
     public void attacks(int roll, Hero hero) {
         System.out.print("the " + description + " " + attackDescription);
         if (roll <= chanceOfHit) {
@@ -41,7 +36,6 @@ public class Monster {
             heroLifePoints -= damagePoints;
             hero.setLifePoints(heroLifePoints);
 
-//            String heroName = hero.getName();
             if (hero.getLifePoints() <= 0) {
                 System.out.println("Slaying " + hero.getName());
             }

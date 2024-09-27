@@ -1,6 +1,6 @@
 package opgave02;
 
-import java.util.Random;
+
 
 public class Dnd {
     public static void main(String[] args) {
@@ -11,13 +11,10 @@ public class Dnd {
 
     public static void fight(Hero hero, Monster monster) {
 
-        int heroLifePoints = hero.getLifePoints();
-        int monsterLifePoints = monster.getLifePoints();
-
-        while (heroLifePoints > 0 && monsterLifePoints > 0) {
+        while (hero.getLifePoints() > 0 && monster.getLifePoints() > 0) {
             int roll = rollD100();
             hero.attacks(roll, monster);
-            if (monsterLifePoints > 0) {
+            if (monster.getLifePoints() > 0) {
                 roll = rollD100();
                 monster.attacks(roll, hero);
             }
