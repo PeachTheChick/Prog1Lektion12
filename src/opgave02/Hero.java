@@ -29,6 +29,10 @@ public class Hero {
         return name;
     }
 
+    public boolean isAlive(int lifePoints) {
+        return lifePoints > 0;
+    }
+
     public void attacks(int roll, Monster monster) {
         System.out.print(name + " attacks with " + pronoun + " " + weapon);
         if (roll <= chanceOfHit) {
@@ -39,7 +43,7 @@ public class Hero {
             monsterLifePoints -= damagePoints;
             monster.setLifePoints(monsterLifePoints);
 
-            if (monster.getLifePoints() <= 0) {
+            if (!monster.isAlive(monster.getLifePoints())) {
                 System.out.println("killing the " + monster.getDescription());
             }
         } else {
